@@ -1,0 +1,54 @@
+## .NET / Visual Studio ##
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# VS folders
+.vs/
+.vscode/
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+
+# NuGet
+*.nupkg
+**/packages/*
+!**/packages/build/
+*.nuget.props
+*.nuget.targets
+
+# Rider / ReSharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# Archivos de sistema
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Certificados OPC UA (se autogeneran en runtime, no deben subirse)
+**/OPC Foundation/
+**/pki/
+**/CertificateStores/
+
+# Logs
+*.log
+logs/
+
+# Archivos personales / notas
+cosasutiles.txt
+Nugets.txt

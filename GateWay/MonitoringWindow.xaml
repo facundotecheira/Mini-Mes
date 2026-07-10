@@ -1,0 +1,65 @@
+﻿<Window x:Class="GateWay.MonitoringWindow"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Monitoreo en Tiempo Real" 
+        Height="600" Width="800"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Título -->
+        <Label Grid.Row="0" 
+               Content="Variables Suscritas" 
+               FontSize="16" 
+               FontWeight="Bold" 
+               Margin="0,0,0,10"/>
+
+        <!-- DataGrid con las variables -->
+        <DataGrid Grid.Row="1" 
+                  x:Name="dgVariables"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  IsReadOnly="False"
+                  SelectionMode="Single"
+                  GridLinesVisibility="Horizontal"
+                  HeadersVisibility="Column"
+                  Margin="0,0,0,10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Variable" 
+                                    Binding="{Binding Name}" 
+                                    Width="150"
+                                    IsReadOnly="True"/>
+                <DataGridTextColumn Header="NodeId" 
+                                    Binding="{Binding NodeId}" 
+                                    Width="200"
+                                    IsReadOnly="True"/>
+                <DataGridTextColumn Header="Valor" 
+                                    Binding="{Binding Value}" 
+                                    Width="100"/>
+                <DataGridTextColumn Header="Última Actualización" 
+                                    Binding="{Binding Time, StringFormat=HH:mm:ss}" 
+                                    Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Consola/Log -->
+        <TextBox Grid.Row="2" 
+                 x:Name="txtLog"
+                 IsReadOnly="True"
+                 AcceptsReturn="True"
+                 VerticalScrollBarVisibility="Auto"
+                 HorizontalScrollBarVisibility="Auto"
+                 FontFamily="Consolas"
+                 FontSize="11"
+                 Background="#1e1e1e"
+                 Foreground="#00ff00"
+                 Height="100"
+                 Padding="5"/>
+    </Grid>
+</Window>
