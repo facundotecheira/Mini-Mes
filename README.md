@@ -52,7 +52,7 @@ flowchart LR
 
 ### ✅ Gateway OPC UA (implementado)
 
-Ubicado en [`src/GateWay`](src/GateWay). Aplicación de escritorio en **WPF (.NET 8)** que actúa como puente entre el PLC y el resto del sistema.
+Aplicación de escritorio en **WPF (.NET 8)** que actúa como puente entre el PLC y el resto del sistema.
 
 **Funcionalidades actuales:**
 
@@ -79,7 +79,7 @@ Ubicado en [`src/GateWay`](src/GateWay). Aplicación de escritorio en **WPF (.NE
 
 **Actual:**
 - **.NET 8** / **WPF** — Gateway
-- **OPC UA** (librería `Opc.Ua.Client` de OPC Foundation) — comunicación con el PLC
+- **OPC UA** (Nuget: `OpcUaHelper`) — comunicación con el PLC
 - **CODESYS** — simulación de PLC para pruebas
 
 **Planeado:**
