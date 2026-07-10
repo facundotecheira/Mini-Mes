@@ -26,13 +26,19 @@ namespace GateWay
 
         private async void btnConnect_Click(object sender, RoutedEventArgs e)
         {
-              btnConnect.IsEnabled = false;
-              bool conectado = await _plcService.Connect(txtUrl.Text, txtPlcName.Text);
-              if (conectado)
-              {
-                 btnDisconnect.IsEnabled = true;
-                 await LoadRootNodesAsync();
-              }   
+            if(txtUrl.Text == string.Empty || txtPlcName.Text == string.Empty)
+            {
+                MessageBox.Show("Complete los campos de Url y Nombre de la maquina","Gateway");
+                return;
+            }
+            
+            btnConnect.IsEnabled = false;
+            bool conectado = await _plcService.Connect(txtUrl.Text, txtPlcName.Text);
+            if (conectado)
+            {
+               btnDisconnect.IsEnabled = true;
+               await LoadRootNodesAsync();
+            }   
         }
 
         private void btnDisconnect_Click(object sender, RoutedEventArgs e)
@@ -119,7 +125,7 @@ namespace GateWay
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error cargando nodos: {ex.Message}");
+                MessageBox.Show($"Error cargando nodos: {ex.Message}", "Gateway");
             }
         }
 
@@ -148,7 +154,7 @@ namespace GateWay
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error cargando hijos de {parentNode.Name}: {ex.Message}");
+                MessageBox.Show($"Error cargando hijos de {parentNode.Name}: {ex.Message}", "Gateway");
             }
         }
 
@@ -240,15 +246,15 @@ namespace GateWay
                 if(variablesSeleccionadas.Count > 0)
                 {
                     _plcService.AddSubscription(variablesSeleccionadas);
-                    MessageBox.Show("Suscrpcion realizada correctamente");
+                    MessageBox.Show("Suscrpcion realizada correctamente", "GateWay");
                 }
                 else
                 {
-                    MessageBox.Show("Debe Seleccionar algun nodo antes de suscribir");
+                    MessageBox.Show("Debe Seleccionar algun nodo antes de suscribir", "Gateway");
                 }
             }
             catch (Exception ex) {
-                MessageBox.Show($"Hubo un error al intentar suscribirce al Plc {ex.Message}");
+                MessageBox.Show($"Hubo un error al intentar suscribirce al Plc {ex.Message}", "Gatewat");
             }
         }
 
